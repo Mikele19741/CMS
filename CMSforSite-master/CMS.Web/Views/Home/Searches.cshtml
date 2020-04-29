@@ -1,0 +1,26 @@
+﻿@model PagedList.IPagedList<CMS.Domain.Models.Searches>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Результаты поиска";
+
+     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<div class="sidebar">
+    <h3>Найдено</h3>
+    @if (Model!=null)
+    {
+        <ul>
+            @foreach (var search in Model)
+            {
+                <li>@Html.ActionLink(search.EntityName,search.EntityName, new {idd=search.id})</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>Ничего не найдено</p>
+    }
+
+</div>

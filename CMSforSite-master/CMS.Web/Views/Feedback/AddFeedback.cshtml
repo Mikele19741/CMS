@@ -1,0 +1,41 @@
+﻿@model IList<CMS.Domain.Models.Feedback>
+
+@{
+    ViewBag.Title = "Написать отзыв";
+}
+
+<h1>Написать отзыв</h1>
+<div id="content">
+    @using (Html.BeginForm())
+    {
+
+        <div>
+            @Html.Label("Имя")
+
+        </div>
+        <div>
+            <input type="text" class="form-id" id="nameid" value=" " />
+
+        </div>
+        <div>
+            @Html.Label("Ссылка на профиль соц сети")
+
+        </div>
+        <div>
+            <input type="text" class="form-id" id="socialid" value=" " />
+
+        </div>
+        <div>
+            @Html.Label("Отзыв")
+
+        </div>
+        <div>
+            <textarea class="text-box multi-line" cols="45" rows="20" id="feedbackBody" name="Body"></textarea>
+
+        </div>
+        <p style="padding-top: 15px">
+            <input class="submit" type="submit" id="IdSubmit" name="contact_submitted" value="Отправить">
+        </p>
+
+    }
+</div>

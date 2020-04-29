@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "~/Views/Admin/_Layoutadmin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Manage form</title>
+ 
+    @Styles.Render("~/Content/themes/simple/admin")
+    @Styles.Render("~/Content/themes/simple/jqueryuicustom/css/sunny/bundle")
+    @Styles.Render("~/Scripts/jqgrid/css/bundle")
+
+    @Scripts.Render("~/jquery", "~/jqueryui", "~/Scripts/tiny_mce/js", "~/manage/js")
+</head>
+<body>
+    <div style="text-align:right; margin-bottom:5px;">
+        @Html.ActionLink("logout", "Logout")
+    </div>
+
+    <h2>Управление контентом</h2>
+
+    <div id="tabs">
+        <ul>
+            <li><a href="#tab-posts">Посты о Вьетнаме</a></li>
+            <li><a href="#tab-cats">Достопримечательности</a></li>
+            <li><a href="#tab-News">Услуги</a></li>
+        </ul>
+        <div id="tab-posts" class="tab">
+            <table id="tablePosts" class="grid"></table>
+            <div id="pagerPosts" class="pager">
+            </div>
+        </div>
+        <div id="tab-cats" class="tab">
+            <table id="tableCats" class="grid"></table>
+            <div id="pagerCats" class="pager">
+            </div>
+        </div>
+        <div id="tab-News" class="tab">
+            <table id="tableServices" class="grid"></table>
+            <div id="pagerServices" class="pager">
+            </div>
+        </div>
+    </div>
+    <div>
+        @Html.ActionLink("Добавить фотоальбом", "AllAlbums", "AdminPhoto")
+    </div>
+</body>
+</html>

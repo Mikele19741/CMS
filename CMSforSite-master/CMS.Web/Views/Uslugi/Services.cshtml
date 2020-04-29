@@ -1,0 +1,26 @@
+﻿@model IList<CMS.Domain.Models.Uslugis>
+@{
+    ViewBag.Title = "Мои услуги";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Мои услуги</h2>
+<div class="sidebar">
+    @if (Model != null)
+    {
+        <ul>
+            @foreach (var post in Model)
+            {
+
+
+                <li><h3>@Html.Raw(post.Name)</h3></li>
+
+                <li class="post-foot">@Html.ActionLink("Краткое описание....", "Service", new { id=post.id})</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>Нет услуг!</p>
+    }
+</div>

@@ -1,0 +1,84 @@
+﻿﻿@using System.Configuration
+
+@{
+
+    Layout = null;
+    //var action = ((string)ViewContext.RouteData.Values["Action"]).ToLower();
+
+    //var blogTitle = ConfigurationManager.AppSettings["BlogTitle"];
+    //var feedBurnerUrl = ConfigurationManager.AppSettings["FeedBurnerUrl"];
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+
+
+    <title>Русскоязычный гид во Вьетнаме; Помощь в оформлении визы; Проведение экскурсий; Организация проживания в Хошимине.</title>
+    @*@Styles.Render("~/Content/themes/simple/admin.css")*@
+    @Styles.Render("~/Content/themes/simple/style.css")
+    @Scripts.Render("~/jquery", "~/jqueryval", "~/jqueryunobtrusiveval", "~/js")
+    @Scripts.Render("~/Scripts/jquery-1.8.2.js")
+    @Scripts.Render("~/Scripts/jquery-ui.min.js")
+    @Scripts.Render("~/Scripts/jquery-ui.js")
+    @Scripts.Render("~/Scripts/admin.js")
+</head>
+
+<body content="width=device-width">
+
+    <div id="main">
+
+        <!-- Header & Navigation -->
+        <div id="header">
+            <a href="@Url.Action("Index", "Home")">
+                <img style="padding: 0 0 0 200px;" src="~/Content/Logotip.png" alt="" />
+            </a>
+            <div id="menubar" class="logo_colour">
+
+                <ul id="menu">
+                    <li class="logo_colour">@Html.ActionLink("Обо мне", "Index", "Home")</li>
+                    <li class="logo_colour">@Html.ActionLink("Услуги", "Services", "Uslugi")</li>
+                    <li class="logo_colour">@Html.ActionLink("О Вьетнаме", "Posts", "Blog")</li>
+                    <li class="logo_colour">@Html.ActionLink("Достопримечательности", "Category", "Category")</li>
+                    <li class="logo_colour">@Html.ActionLink("Отзывы туристов", "FeedBacks", "Feedback")</li>
+                    <li class="logo_colour">@Html.ActionLink("Контакты", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div id="site_content">
+            @Html.Partial("_Search")
+            @RenderBody()
+            @*@Html.Action("Sidebars")*@
+            @*<p class="linklang">@Html.Partial("_Search")</p>*@
+
+        </div>
+
+        <!-- Footer -->
+        <div id="footer" novalidate="novalidate">
+            <!-- HotLog -->
+            <span id="hotlog_counter"></span>
+            <span id="hotlog_dyn"></span>
+            <script type="text/javascript">
+				var hot_s = document.createElement('script'); hot_s.type = 'text/javascript'; hot_s.async = true;
+				hot_s.src = 'http://js.hotlog.ru/dcounter/2574588.js';
+				hot_d = document.getElementById('hotlog_dyn');
+				hot_d.appendChild(hot_s);
+            </script>
+
+
+            <a href="http://click.hotlog.ru/?2574588" target="_blank">
+                <img src="http://hit20.hotlog.ru/cgi-bin/hotlog/count?s=2574588&im=407"
+                     border="0" alt="HotLog" title="HotLog">
+            </a>
+            <!-- /HotLog -->
+            Copyright © @DateTime.Now.Year IT-Sugars All Rights Reserved
+        </div>
+    </div>
+</body>
+</html>

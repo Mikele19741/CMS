@@ -1,0 +1,14 @@
+﻿@model CMS.Web.Models.PhotoViewModel
+
+<div id="sidebars">
+   @if (Model.Photos != null)
+   {
+    @Html.Partial("_Photos", Model.Photos)
+   }
+   else
+   {
+       
+   }
+
+
+</div>

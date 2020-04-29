@@ -1,0 +1,34 @@
+﻿﻿@model CMS.Domain.Categories
+
+@{
+    ViewBag.Title = Model.Name;
+    ViewBag.Meta = Model.Name;
+
+    Layout = "~/Views/Blog/_layoutblog.cshtml";
+}
+
+<div id="content">
+    <div class="post">
+        <div class="post-meta">  
+            <div class="row">
+                <div class="post-title">
+                    <h1>@Html.Raw(Model.Name)</h1>
+                    @Html.Action("PhotoBars", "Blog", new { id=Model.id })
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="post-category">
+                    @*<span>Category:</span>&nbsp;@Html.CategoryLink(Model.Category)*@
+                </div>
+            </div>
+        </div>
+        <div class="post-body">
+            @Html.Raw(Model.Description)
+        </div>
+
+
+    </div>
+
+</div>
+

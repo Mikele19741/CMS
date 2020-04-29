@@ -1,0 +1,71 @@
+﻿@using System.Configuration
+
+@{
+    Layout = null;
+    //var action = ((string)ViewContext.RouteData.Values["Action"]).ToLower();
+
+    //var blogTitle = ConfigurationManager.AppSettings["BlogTitle"];
+    //var feedBurnerUrl = ConfigurationManager.AppSettings["FeedBurnerUrl"];
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Gid Viewtnam</title>
+    @Styles.Render("~/Content/themes/simple/admin.css")
+    @*@Styles.Render("~/Content/themes/simple/style.css")*@
+    @Scripts.Render("~/jquery", "~/jqueryval", "~/jqueryunobtrusiveval", "~/js")
+    @Scripts.Render("~/Scripts/jquery-1.8.2.js")
+    @Scripts.Render("~/Scripts/jquery-ui.min.js")
+    @Scripts.Render("~/Scripts/jquery-ui.js")
+    @Scripts.Render("~/Scripts/admin.js")
+</head>
+<body>
+
+    <div id="main">
+
+        <!-- Header & Navigation -->
+        @*<div id="header">
+            <div id="logo">
+                <div id="logo_text">
+                    <h1><a href="/"><span class="logo_colour">CMS</span></a></h1>
+                    <h2>Writings, Experiments and More...</h2>
+                </div>
+            </div>
+            <div id="menubar" class="logo_colour">
+                <ul id="menu">
+                    <li class="logo_colour">@Html.ActionLink("Новости", "Posts")</li>
+                    <li class="logo_colour">@Html.ActionLink("Методика", "Posts", "Blog")</li>
+                    <li class="logo_colour">@Html.ActionLink("Наши победители", "Aboutme")</li>
+                    <li class="logo_colour">@Html.ActionLink("Фотогаллерея", "Contact")</li>
+                    <li class="logo_colour">@Html.ActionLink("О нас", "Aboutme")</li>
+                    <li class="logo_colour">@Html.ActionLink("Заявка на участие", "Aboutme")</li>
+                </ul>
+            </div>
+        </div>*@
+
+        <!-- Main Content -->
+        <div id="site_content">
+
+            @*<div class="feeddiv">
+                @Html.ActionLink("RSS Subscribe to my blog", "RssFeed", "Blog")
+            </div>
+
+            @Html.Partial("_Search")*@
+            @RenderBody()
+            @*@Html.Action("Sidebars")*@
+        </div>
+
+        <!-- Footer -->
+        @*<div id="footer">
+
+            Copyright © @DateTime.Now.Year CMS All Rights Reserved
+        </div>*@
+    </div>
+</body>
+</html>

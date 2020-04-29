@@ -1,0 +1,26 @@
+﻿@model IList<CMS.Domain.Models.Feedback>
+@{
+    ViewBag.Title = "Отзывы туристов";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Отзывы туристов</h2>
+<div class="sidebar">
+    @if (Model != null)
+    {
+        <ul>
+            @foreach (var post in Model)
+            {
+                <li class="feedbackname">@Html.Raw(post.Name)</li>
+
+                <li>@Html.Raw(post.Body)</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>Нет отзывов</p>
+    }
+</div>
+@Html.Partial("AddFeedback")
+

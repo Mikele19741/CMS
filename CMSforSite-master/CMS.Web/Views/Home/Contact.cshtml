@@ -1,0 +1,70 @@
+﻿@model CMS.Domain.Models.Contact
+
+@{
+    ViewBag.Title = "Контакты";
+}
+
+<h1>Как со мной связаться.</h1>
+<div  id="content">
+<h3>Меня зовут Динь чонг Хай. (можно просто — Хай)</h3>
+	<p>
+		<img src="/Content/Contacts.jpg">
+	</p>
+<p>Позвоните или напишите, чтобы заказать мои экскурсии или получить консультацию.</p>
+<p>
+Жду ваших вопросов. Если вам нужно спланировать отдых, сообщите, когда собираетесь во Вьетнам,
+	какие места хотите посетить, какие услуги вам понадобятся. 
+	Я подготовлю для вас индивидуальный вариант путешествия, и мы вместе обсудим детали. Мои контакты указаны ниже.</p>
+<p>
+На все ваши вопросы отвечу лично я, а не агентство или посредники.
+</p>
+<p>
+На сайте есть форма обратной связи внизу этой страницы. 
+	Она находится в верхней и нижней части каждой страницы. 
+	Это самый быстрый способ связаться со мной, не покидая сайт. Мне будет удобнее, если вы воспользуетесь этим вариантом.</p>
+<h1>Мои контакты:</h1>
+	<strong>Электронная почта:</strong> <a id="email" href="mailto:hai@gid-vietnam.ru">hai@gid-vietnam.ru</a><br />
+	<strong>Телефон:</strong><a href="https://api.whatsapp.com/send?phone=84963398884" target="_blank" rel="noopener">+84963398884</a><br />
+	<strong>Skype:</strong><a id="skype" href="callto:haidinh66">haidinh66</a><br />
+	<strong>Социальные сети: </strong><br />
+<strong>Фейсбук:</strong> <a id="facebook" href="https://www.facebook.com/hai.dinh.733" target="_blank" rel="noopener">facebook.com/hai.dinh.733</a><br />
+<strong>Вконтакте:</strong> <a id="vk" href="https://vk.com/khay66" target="_blank" rel="noopener">vk.com/khay66</a><br />
+	<p>Буду рад ответить на ваши вопросы или помочь с организацией отдыха во Вьетнаме. 
+	Я оказываю индивидуальные услуги для русскоговорящих туристов: от проведения экскурсий до бронирования билетов и подбора жилья.</p>
+<h1>
+Обращайтесь — я всегда готов помочь!</h1>
+
+<h1>Ваши вопросы:</h1>
+    @using (Html.BeginForm())
+    {
+        <div class="form_settings">
+            <p>
+                <span class="field">Ваше имя</span>
+                @Html.TextBoxFor(m => m.Name)
+                @Html.ValidationMessageFor(m => m.Name)
+            </p>
+
+            <p>
+                <span class="field">Email</span>
+                @Html.TextBoxFor(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email)
+            </p>
+            <p>
+                <span class="field">Тема</span>
+                @Html.TextBoxFor(m => m.Subject)
+                @Html.ValidationMessageFor(m => m.Subject)
+            </p>
+
+            <p>
+                <span class="field">Вопрос</span>
+                @Html.TextAreaFor(m => m.Body, new { rows = 10 })
+                @Html.ValidationMessageFor(m => m.Body)
+            </p>
+
+            <p style="padding-top: 15px">
+                <span>&nbsp;</span>
+                <input class="submit" type="submit" name="contact_submitted" value="Отправить">
+            </p>
+        </div>
+    }
+</div>

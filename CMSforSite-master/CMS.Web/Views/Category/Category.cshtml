@@ -1,0 +1,27 @@
+﻿@model IList<CMS.Domain.Categories>
+@{
+    ViewBag.Title = "Интересные места Вьетнама";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Интересные места Вьетнама</h2>
+
+<div class="sidebar">
+    @if (Model != null)
+    {
+    <ul>
+        @foreach (var post in Model)
+    {
+
+
+        <li>@Html.Raw(post.Name)</li>
+
+        <li class="post-foot">@Html.ActionLink("Краткое описание....", "Article", new { id=post.id})</li>
+     }
+    </ul>
+    }
+    else
+    {
+        <p>Нет статей!</p>
+    }
+</div>

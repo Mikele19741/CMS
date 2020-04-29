@@ -1,0 +1,30 @@
+﻿
+@model PagedList.IPagedList<CMS.Domain.Models.Posts>
+@using PagedList.Mvc;
+@{
+    @*@ViewBag.Title = "Всё о Вьетнаме";*@
+
+    Layout = "~/Views/Blog/_layoutblog.cshtml";
+}
+
+<div id="content">
+    <h3>Всё о Вьетнаме</h3>
+
+    @if (Model!=null)
+    {
+        <ul>
+            @foreach (var post in Model)
+            {
+            <h3>@Html.Raw(post.Title)</h3>
+            <ul>@Html.Raw(post.Header)</ul> 
+                <ul class="post-foot">@Html.ActionLink("Читать далее...", "Post", new { year = post.CreatedOn.Year, month = post.CreatedOn.Month, title = post.UrlSlug })</ul>
+
+            }
+        </ul>
+    }
+    else
+    {
+        <p>Нет статей!</p>
+    }
+   
+</div>
